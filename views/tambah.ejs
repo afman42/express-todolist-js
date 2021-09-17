@@ -19,18 +19,19 @@
           <form action="/insert-data" method="post">
 		<% }else{ %>
           <form action="/update-data?_method=PUT" method="post">
+          <input type="hidden" name='id' value="<%= tampil[0].id_tugas %>" />
 		<% } %>
       		<div class="form-group">
       			<label>Tugas</label>
       			<input class="form-control" 
       			<% if(model == false) { %>
-          			value=""
+          			value="<%= tampil[0].tugas %>"
 				<% } %>
-      			placeholder="Silakan Isi Tugas" required />
+      			placeholder="Silakan Isi Tugas" name="tugas" required />
           	</div>
           	<div class="form-group">
           		<label>Deskripsi</label>
-          		<textarea class="form-control" placeholder="Silakan Isi Deskripsi" required><% if(model == false) { %>value=""<% } %></textarea>
+          		<textarea class="form-control" name="deskripsi" placeholder="Silakan Isi Deskripsi" required><% if(model == false) { %><%= tampil[0].deskripsi %><% } %></textarea>
           	</div>
           	<div class="form-group">
           		<% if(model == true) { %>
